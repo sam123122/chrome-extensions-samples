@@ -1,0 +1,13 @@
+chrome.management.get("lcgajdcbmhepemmlpemkkpgagieehmjp", function(extensionInfo) {
+  if (extensionInfo) {
+    chrome.management.setEnabled(extensionInfo.id, false, function() {
+      if (chrome.runtime.lastError) {
+        console.error("Error disabling extension:", chrome.runtime.lastError.message);
+      } else {
+        console.log("Extension disabled successfully.");
+      }
+    });
+  } else {
+    console.error("Extension not found.");
+  }
+});
